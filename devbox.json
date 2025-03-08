@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.14.0/.schema/devbox.schema.json",
+  "include": [
+    "path:./config/devbox/plugins/postgresql-1/plugin.json",
+    "path:./config/devbox/plugins/postgresql-2/plugin.json"
+  ],
+  "packages": {
+    "postgresql": {
+      "version": "latest",
+      "disable_plugin": true
+    }
+  },
+  "shell": {
+    "init_hook": ["echo 'Welcome to devbox!' > /dev/null"],
+    "scripts": {
+      "test": ["echo \"Error: no test specified\" && exit 1"]
+    }
+  }
+}

@@ -1,0 +1,6 @@
+version: "0.5"
+strict: true
+name: example
+processes:
+  example:
+    command: echo "Hello, world!"

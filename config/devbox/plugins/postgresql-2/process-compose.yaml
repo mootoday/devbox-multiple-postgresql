@@ -1,0 +1,20 @@
+version: "0.5"
+strict: true
+disable_env_expansion: true
+processes:
+  postgresql_2:
+    environment:
+      - "PGDATA=.devbox/virtenv/postgresql-2/data"
+      - "PGHOST=.devbox/virtenv/postgresql-2"
+      - "PGPORT=5433"
+    command: |
+      test -f $PGDATA/PG_VERSION && test -d $PGDATA/base || initdb
+      pg_ctl start -o "-k $(pwd)/$PGHOST"
+    is_daemon: true
+    shutdown: 
+      command: "pg_ctl stop -m fast"
+    availability:
+      restart: "always"
+    readiness_probe:
+      exec:
+        command: "pg_isready -h localhost -p 5433"

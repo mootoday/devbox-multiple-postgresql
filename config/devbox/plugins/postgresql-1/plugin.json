@@ -1,0 +1,15 @@
+{
+    "name": "postgresql-1",
+    "version": "0.0.1",
+    "description": "Postgresql server 1",
+    "packages": {
+        "glibcLocales": {
+            "version": "latest",
+            "platforms": ["x86_64-linux", "aarch64-linux"]
+        }
+    },
+    "create_files": {
+        "{{ .Virtenv }}/data": "",
+        "{{ .Virtenv }}/process-compose.yaml": "process-compose.yaml"
+    }
+}
